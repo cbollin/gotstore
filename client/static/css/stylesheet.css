@@ -1,0 +1,7 @@
+@font-face {
+    font-family: got;
+    src: url(got.ttf);
+}
+h1 {
+    font-family: got;
+}
