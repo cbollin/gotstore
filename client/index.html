@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- Libraries -->
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="static/css/stylesheet.css">
   <style> .glyphicon-thumbs-up { cursor:pointer } </style>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
@@ -81,19 +82,34 @@
       <p><strong>Quantity:</strong> {{ product.quantity }}</p>
       <p><strong>Price:</strong> {{ product.price | currency }}</p>
       <p><a href="#/products/{{product._id}}"><button>View This Product</button></a></p>
+<<<<<<< HEAD
+=======
+
+    <h1>WINTERSELL</h1>
+    <div ng-hide="isLoggedIn()">
+      <h3>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can start buying/selling.</h3>
+>>>>>>> 2ed86cd545277a9a49016054524801fbc88132fd
     </div>
   </script>
 
  <!-- One Product Template -->
   <script type="text/ng-template" id="/oneproduct.html">
+<<<<<<< HEAD
     <h3>{{ foundProduct.name }}</h3>
+=======
+    <h3><span ng-bind="product.name"></span>{{ product.name }}</h3>
+    Id: {{ foundProduct._id }}
+>>>>>>> 2ed86cd545277a9a49016054524801fbc88132fd
     Seller: <p>{{ foundProduct.seller }}</p>
     Condition: <p>{{ foundProduct.condition }}</p>
     Quantity: <p>{{ foundProduct.quantity }}</p>
     Price: <p>{{ foundProduct.price }}</p>
     <br>
     <a href=""><button>Review This Product</button></a>
+<<<<<<< HEAD
     <a href="#/products"><button>Go back</button></a>
+=======
+>>>>>>> 2ed86cd545277a9a49016054524801fbc88132fd
   </script>
 
   <!-- Register Template -->
@@ -149,6 +165,12 @@
       <button type="submit" class="btn btn-primary">Log In</button>
     </form>
   </script>
+<<<<<<< HEAD
 
+=======
+  <audio autoplay>
+  <source src="/static/audio/got.mp3" type="audio/mpeg">
+  </audio>
+>>>>>>> 2ed86cd545277a9a49016054524801fbc88132fd
 </body>
 </html>

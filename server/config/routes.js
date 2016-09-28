@@ -9,7 +9,10 @@ module.exports = function(app) {
   //Products//
   app.get('/products', Products.showProducts);
   app.post('/products', auth, Products.addProducts);
+<<<<<<< HEAD
   // app.param('product', Products.setProductParam);
+=======
+>>>>>>> 2ed86cd545277a9a49016054524801fbc88132fd
   app.get('/products/:id', Products.showOneProduct);
   app.put('/products/:id/upvote', auth, Products.upvoteProduct);
 
