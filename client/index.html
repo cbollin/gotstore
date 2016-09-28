@@ -7,7 +7,8 @@
   <!-- Libraries -->
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="static/css/stylesheet.css">
-  <style> .glyphicon-thumbs-up { cursor:pointer } </style>
+  <style> .glyphicon-heart-empty { cursor:pointer } </style>
+  <style> .glyphicon-star-empty { cursor:pointer } </style>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
@@ -81,6 +82,8 @@
       <p><strong>Condition:</strong> {{ product.condition }}</p>
       <p><strong>Quantity:</strong> {{ product.quantity }}</p>
       <p><strong>Price:</strong> {{ product.price | currency }}</p>
+      <p><span class="glyphicon glyphicon-heart-empty"
+          ng-click="incrementUpvotes(product)"></span></p>
       <p><a href="#/products/{{product._id}}"><button>View This Product</button></a></p>
 
     <h1>WINTERSELL</h1>
@@ -91,14 +94,29 @@
 
  <!-- One Product Template -->
   <script type="text/ng-template" id="/oneproduct.html">
-    <h3><span ng-bind="product.name"></span>{{ product.name }}</h3>
-    Id: {{ foundProduct._id }}
-    Seller: <p>{{ foundProduct.seller }}</p>
-    Condition: <p>{{ foundProduct.condition }}</p>
-    Quantity: <p>{{ foundProduct.quantity }}</p>
-    Price: <p>{{ foundProduct.price }}</p>
+    <h2>{{ foundProduct.name }}</h2>
+    <h4>Seller: {{ foundProduct.seller }}</h4>
+    <h4>Condition: {{ foundProduct.condition }}</h4>
+    <h4>Quantity: {{ foundProduct.quantity }}</h4>
+    <h4>Price: {{ foundProduct.price | currency }}</h4>
     <br>
-    <a href=""><button>Review This Product</button></a>
+    <h3>Rate This Product</h3>
+    <p><span id="one" class="glyphicon glyphicon-star-empty" ng-click="oneStar()"></span>
+       <span id="two" class="glyphicon glyphicon-star-empty" ng-click="twoStars()"></span>
+       <span id="three" class="glyphicon glyphicon-star-empty" ng-click="threeStars()"></span>
+       <span id="four" class="glyphicon glyphicon-star-empty" ng-click="fourStars()"></span>
+       <span id="five" class="glyphicon glyphicon-star-empty" ng-click="fiveStars()"></span></p>
+    <!-- <form ng-submit="addReview()"
+    ng-show="isLoggedIn()"
+    style="margin-top:30px;">
+      <div class="form-group">
+      <textarea cols="8" rows="4"
+      class="form-control"
+      placeholder="Review"
+      ng-model="description"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Review</button>
+    </form> -->
   </script>
 
   <!-- Register Template -->

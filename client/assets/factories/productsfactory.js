@@ -36,11 +36,11 @@ app.factory('productsFactory', ['$http', 'authFactory', function($http, authFact
     });
   };
 
-  factory.reviewProduct = function(id, review) {
-    return $http.post('/products/' + id + '/reviews', review, {
-      headers: {Authorization: 'Bearer '+authFactory.getToken()}
-    });
-  };
+  // factory.reviewProduct = function(id, review) {
+  //   return $http.post('/products/' + id + '/reviews', review, {
+  //     headers: {Authorization: 'Bearer '+authFactory.getToken()}
+  //   });
+  // };
 
   return factory;
 

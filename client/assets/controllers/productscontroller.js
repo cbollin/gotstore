@@ -32,7 +32,26 @@ app.controller('productsController', ['$scope', 'productsFactory', 'authFactory'
     $scope.price = '';
     console.log('the product has been added');
   };
-  //
+
+  // $scope.addReview = function(){
+  //   if($scope.body === '') {
+  //     return;
+  //   }
+  //   productsFactory.reviewProduct(product._id, {
+  //     body: $scope.body,
+  //     author: 'user',
+  //   }).success(function(review) {
+  //     $scope.product.reviews.push(review);
+  //   });
+  //   $scope.body = '';
+  //   console.log('the review has been added');
+  // };
+
+  $scope.incrementUpvotes = function(product) {
+    productsFactory.upvote(product);
+    console.log('the product has been upvoted');
+
+  }
 
 
 

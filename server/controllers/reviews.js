@@ -16,6 +16,7 @@ module.exports = {
         return next(err);
       }
       req.product.reviews.push(review);
+      console.log('the review has been added!');
       req.product.save(function(err, product) {
         if(err) {
           return next(err);

@@ -28,6 +28,13 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 
     })
 
+    // .state('review', {
+    //   url: '/products/:id',
+    //   templateUrl: '/oneproduct.html',
+    //   controller: 'productsController'
+    //
+    // })
+
     .state('register', {
       url: '/register',
       templateUrl: '/register.html',
