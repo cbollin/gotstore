@@ -24,17 +24,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     .state('oneproduct', {
       url: '/products/:id',
       templateUrl: '/oneproduct.html',
-<<<<<<< HEAD
       controller: 'productsController',
-      // resolve: {
-      //   product: ['$stateParams', 'productsFactory', function($stateParams, productsFactory) {
-      //     return productsFactory.get($stateParams.id);
-      //   }]
-      // }
-=======
-      controller: 'productsController'
 
->>>>>>> 2ed86cd545277a9a49016054524801fbc88132fd
     })
 
     .state('register', {
