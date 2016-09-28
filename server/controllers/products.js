@@ -29,22 +29,6 @@ module.exports = {
     });
   },
 
-  // setProductParam: function(req, res, next, id) {
-  //
-  //   var query = Product.findById(id);
-  //
-  //   query.exec(function (err, product){
-  //     if (err) {
-  //       return next(err);
-  //     }
-  //     if (!product) {
-  //       return next(new Error('can\'t find product'));
-  //     }
-  //     req.product = product;
-  //     return next();
-  //   });
-  // },
-
   showOneProduct: function(req, res, next) {
     Product.findOne({_id: req.params.id}, function(err, product) {
       if(err) {
