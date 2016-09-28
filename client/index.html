@@ -8,13 +8,16 @@
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   <style> .glyphicon-thumbs-up { cursor:pointer } </style>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
   <!-- Javascripts -->
   <script src='/assets/app.js'></script>
   <script src='/assets/controllers/authcontroller.js'></script>
   <script src='/assets/controllers/navcontroller.js'></script>
+  <script src='/assets/controllers/productscontroller.js'></script>
   <script src='/assets/factories/authfactory.js'></script>
-  <title>MEAN Project</title>
+  <script src='/assets/factories/productsfactory.js'></script>
+  <title>Wintersell</title>
 </head>
 <body style="margin-left: 20px;">
   <nav class="navbar navbar-default pull-right" ng-controller="navController">
@@ -27,16 +30,70 @@
   </nav>
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
+      <hr>
       <ui-view></ui-view>
+      <hr>
     </div>
   </div>
 
 <!-- Home Template -->
   <script type="text/ng-template" id="/home.html">
-    <h1>Welcome to the Game of Thrones Store</h1>
-    <div ng-hide="isLoggedIn()">
-      <h3>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can start buying/selling.</h3>
+    <h1>Welcome to Wintersell: The Game of Thrones Online Store</h1>
+    <h3 ng-hide="isLoggedIn()">You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can view the store.</h3>
+    <button><a href="/#/products">Go To Store</a></button>
+  </script>
+
+<!-- Products Template -->
+  <script type="text/ng-template" id="/products.html">
+    <h3 ng-hide="isLoggedIn()">You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can add a product.</h3>
+    <form ng-submit="addProduct()"
+      style="margin-top:30px;">
+      <h3>Add A Product</h3>
+      Name: <input type="text"
+      class="form-control"
+      placeholder="Name"
+      ng-model="name"><br>
+      Condition: <select ng-model="condition" class="form-control">
+                    <option value="Mint Condition">Brand New</option>
+                    <option value="Barely New">Slightly Used</option>
+                    <option value="Barely Used">Slightly Used</option>
+                    <option value="Slightly Used">Used</option>
+                    <option value="Decrepit">Decrepit</option>
+                  </select><br>
+      Quantity: <input type="number"
+      class="form-control"
+      placeholder="Quantity"
+      ng-model="quantity"><br>
+      Price: <input type="number"
+      class="form-control"
+      placeholder="Price"
+      ng-model="price"><br>
+      <button type="submit" class="btn btn-primary" ng-click="uploadPic()">Upload An Image</button>
+      <br>
+      <br>
+      <button type="submit" class="btn btn-primary">Submit Product</button>
+    </form>
+    <h2>All Products</h2>
+    <div ng-repeat="product in products">
+      <h3>{{ product.name }}</h3>
+      <p><strong>Seller:</strong> {{ product.seller }}</p>
+      <p><strong>Condition:</strong> {{ product.condition }}</p>
+      <p><strong>Quantity:</strong> {{ product.quantity }}</p>
+      <p><strong>Price:</strong> {{ product.price | currency }}</p>
+      <p><a href="#/products/{{product._id}}"><button>View This Product</button></a></p>
     </div>
+  </script>
+
+ <!-- One Product Template -->
+  <script type="text/ng-template" id="/oneproduct.html">
+    <h3><span ng-bind="product.name"></span>{{ product.name }}</h3>
+    Id: {{ foundProduct._id }}
+    Seller: <p>{{ foundProduct.seller }}</p>
+    Condition: <p>{{ foundProduct.condition }}</p>
+    Quantity: <p>{{ foundProduct.quantity }}</p>
+    Price: <p>{{ foundProduct.price }}</p>
+    <br>
+    <a href=""><button>Review This Product</button></a>
   </script>
 
   <!-- Register Template -->
@@ -92,5 +149,6 @@
       <button type="submit" class="btn btn-primary">Log In</button>
     </form>
   </script>
+
 </body>
 </html>

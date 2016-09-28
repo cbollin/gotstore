@@ -17,4 +17,9 @@ app.controller('authController', ['$scope', '$state', 'authFactory', function($s
       $state.go('home');
     });
   };
+
+  $scope.isLoggedIn = authFactory.isLoggedIn;
+  $scope.currentUser = authFactory.currentUser;
+  $scope.logOut = authFactory.logOut;
+  
 }]);

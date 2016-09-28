@@ -4,5 +4,4 @@ app.controller('navController', ['$scope', 'authFactory', function($scope, authF
   $scope.currentUser = authFactory.currentUser;
   $scope.logOut = authFactory.logOut;
 
-
 }]);
