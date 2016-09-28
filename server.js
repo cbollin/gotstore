@@ -12,7 +12,8 @@ require('./server/config/mongoose.js');
 require('./server/config/routes.js')(app);
 
 //Server-Side Controllers//
-users = require('./server/controllers/users.js');
+Users = require('./server/controllers/users.js');
+Products = require('./server/controllers/products.js');
 
 app.listen(8000, function(){
 	console.log('listening on port 8000.....');

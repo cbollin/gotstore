@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router']);
+var app = angular.module('app', ['ui.router', 'ngRoute']);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
@@ -6,21 +6,42 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     .state('home', {
       url: '/home',
       templateUrl: '/home.html',
-      // controller: 'mainController'
+      controller: 'authController'
+
+    })
+
+    .state('products', {
+      url: '/products',
+      templateUrl: '/products.html',
+      controller: 'productsController',
+      resolve: {
+        products: ['productsFactory', function(productsFactory) {
+          return productsFactory.getAll();
+        }]
+      }
+    })
+
+    .state('oneproduct', {
+      url: '/products/:id',
+      templateUrl: '/oneproduct.html',
+      controller: 'productsController',
+      // resolve: {
+      //   product: ['$stateParams', 'productsFactory', function($stateParams, productsFactory) {
+      //     return productsFactory.get($stateParams.id);
+      //   }]
+      // }
     })
 
     .state('register', {
       url: '/register',
       templateUrl: '/register.html',
       controller: 'authController'
-
     })
 
     .state('login', {
       url: '/login',
       templateUrl: '/login.html',
       controller: 'authController'
-
     })
 
     $urlRouterProvider.otherwise('home');
