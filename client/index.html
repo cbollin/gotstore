@@ -39,9 +39,13 @@
 
 <!-- Home Template -->
   <script type="text/ng-template" id="/home.html">
-    <h1>Welcome to Wintersell: The Game of Thrones Online Store</h1>
+    <h1 class="home">Welcome to Wintersell:</h1>
+    <h1 class="home">The Game of Thrones Online Store</h1>
     <h3 ng-hide="isLoggedIn()">You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can view the store.</h3>
     <button><a href="/#/products">Go To Store</a></button>
+    <audio autoplay>
+    <source src="/static/audio/got.mp3" type="audio/mpeg">
+    </audio>
   </script>
 
 <!-- Products Template -->
@@ -82,34 +86,21 @@
       <p><strong>Quantity:</strong> {{ product.quantity }}</p>
       <p><strong>Price:</strong> {{ product.price | currency }}</p>
       <p><a href="#/products/{{product._id}}"><button>View This Product</button></a></p>
-<<<<<<< HEAD
-=======
-
-    <h1>WINTERSELL</h1>
     <div ng-hide="isLoggedIn()">
       <h3>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can start buying/selling.</h3>
->>>>>>> 2ed86cd545277a9a49016054524801fbc88132fd
     </div>
   </script>
 
  <!-- One Product Template -->
   <script type="text/ng-template" id="/oneproduct.html">
-<<<<<<< HEAD
     <h3>{{ foundProduct.name }}</h3>
-=======
-    <h3><span ng-bind="product.name"></span>{{ product.name }}</h3>
-    Id: {{ foundProduct._id }}
->>>>>>> 2ed86cd545277a9a49016054524801fbc88132fd
     Seller: <p>{{ foundProduct.seller }}</p>
     Condition: <p>{{ foundProduct.condition }}</p>
     Quantity: <p>{{ foundProduct.quantity }}</p>
     Price: <p>{{ foundProduct.price }}</p>
     <br>
     <a href=""><button>Review This Product</button></a>
-<<<<<<< HEAD
     <a href="#/products"><button>Go back</button></a>
-=======
->>>>>>> 2ed86cd545277a9a49016054524801fbc88132fd
   </script>
 
   <!-- Register Template -->
@@ -165,12 +156,5 @@
       <button type="submit" class="btn btn-primary">Log In</button>
     </form>
   </script>
-<<<<<<< HEAD
-
-=======
-  <audio autoplay>
-  <source src="/static/audio/got.mp3" type="audio/mpeg">
-  </audio>
->>>>>>> 2ed86cd545277a9a49016054524801fbc88132fd
 </body>
 </html>
