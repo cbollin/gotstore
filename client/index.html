@@ -40,9 +40,13 @@
 
 <!-- Home Template -->
   <script type="text/ng-template" id="/home.html">
-    <h1>Welcome to Wintersell: The Game of Thrones Online Store</h1>
+    <h1 class="home">Welcome to Wintersell:</h1>
+    <h1 class="home">The Game of Thrones Online Store</h1>
     <h3 ng-hide="isLoggedIn()">You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can view the store.</h3>
     <button><a href="/#/products">Go To Store</a></button>
+    <audio autoplay>
+    <source src="/static/audio/got.mp3" type="audio/mpeg">
+    </audio>
   </script>
 
 <!-- Products Template -->
@@ -85,8 +89,6 @@
       <p><span class="glyphicon glyphicon-heart-empty"
           ng-click="incrementUpvotes(product)"></span></p>
       <p><a href="#/products/{{product._id}}"><button>View This Product</button></a></p>
-
-    <h1>WINTERSELL</h1>
     <div ng-hide="isLoggedIn()">
       <h3>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can start buying/selling.</h3>
     </div>
@@ -94,6 +96,7 @@
 
  <!-- One Product Template -->
   <script type="text/ng-template" id="/oneproduct.html">
+
     <h2>{{ foundProduct.name }}</h2>
     <h4>Seller: {{ foundProduct.seller }}</h4>
     <h4>Condition: {{ foundProduct.condition }}</h4>
@@ -117,6 +120,7 @@
       </div>
       <button type="submit" class="btn btn-primary">Submit Review</button>
     </form> -->
+    <a href="#/products"><button>Go back</button></a>
   </script>
 
   <!-- Register Template -->
@@ -172,8 +176,5 @@
       <button type="submit" class="btn btn-primary">Log In</button>
     </form>
   </script>
-  <audio autoplay>
-  <source src="/static/audio/got.mp3" type="audio/mpeg">
-  </audio>
 </body>
 </html>

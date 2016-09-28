@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router']);
+var app = angular.module('app', ['ui.router', 'ngRoute']);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
@@ -24,7 +24,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     .state('oneproduct', {
       url: '/products/:id',
       templateUrl: '/oneproduct.html',
-      controller: 'productsController'
+      controller: 'productsController',
 
     })
 
